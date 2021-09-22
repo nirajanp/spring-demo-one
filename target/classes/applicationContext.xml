@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+
+    <!--    For inversion of control -->
+    <!--    In future if you want to use service from any other
+            class all you need to do is change class name in config file.-->
+    <!--  Step 1: Configure your spring bean     -->
+    <bean id="inversionCoach"
+          class="inversionOfControl.GymnasticCoach"></bean>
+
+
+    <!-- For Constructor Injection-->
+    <!-- Step 3: Configure the dependency injection in Spring config  -->
+    <bean id="constructorInjectionFortuneService"
+          class="constructorInjection.HappyFortuneService">
+    </bean>
+
+    <bean id="constCoach"
+          class = "constructorInjection.SwimCoach" >
+        <!--  Setup construction injection. -->
+        <constructor-arg ref="constructorInjectionFortuneService"/>
+    </bean>
+
+    <!-- For setter injection    -->
+    <bean id="setterInjectionFortuneService"
+          class="setterInjection.HappyFortuneService">
+    </bean>
+
+    <bean id="theCricketCoach"
+        class="setterInjection.CricketCoach">
+        <property name="fortuneService" ref="setterInjectionFortuneService"/>
+    </bean>
+
+</beans>
