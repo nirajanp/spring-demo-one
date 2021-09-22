@@ -39,4 +39,11 @@
         <property name="fortuneService" ref="setterInjectionFortuneService"/>
     </bean>
 
+    <!-- For literal injection   -->
+    <bean id="literalVal"
+        class="injectingLiteralValues.CricketCoach">
+        <property name="emailAddress" value="np@gmail.com"/>
+        <property name="team" value="KKR"/>
+    </bean>
+
 </beans>
