@@ -7,7 +7,7 @@ public class MyApp {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Coach coach = context.getBean("literalVal", Coach.class);
+        Coach coach = context.getBean("literalVal", CricketCoach.class);
 
         System.out.println(coach.printVal());
     }

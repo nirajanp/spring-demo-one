@@ -5,4 +5,5 @@ public class HappyFortuneService implements FortuneService{
     public String getYouDailyFortune() {
         return "You fortune is bright ;)";
     }
+
 }

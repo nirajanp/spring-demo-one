@@ -30,8 +30,9 @@
     </bean>
 
     <!-- For setter injection    -->
+    <!-- Step 2: Configure Dependency injection in Spring Config file       -->
     <bean id="setterInjectionFortuneService"
-          class="setterInjection.HappyFortuneService">
+          class="setterInjection.RandomFortuneService">
     </bean>
 
     <bean id="theCricketCoach"
@@ -44,6 +45,14 @@
         class="injectingLiteralValues.CricketCoach">
         <property name="emailAddress" value="np@gmail.com"/>
         <property name="team" value="KKR"/>
+
+        <!-- This is injecting values by using properties-->
+        <property name="position" value="${foo.position}"/>
+        <property name="rating" value="${foo.rating}"/>
     </bean>
+
+    <!-- For injecting values using properties file-->
+    <!-- Step 2: Load Properties file in spring config file-->
+    <context:property-placeholder location="classpath:sport.properties"/>
 
 </beans>
